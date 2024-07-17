@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
         - name: nginx
-          image: asia-east1-docker.pkg.dev/nelab-402301/alan-test/nginx:2.0
+          image: asia-east1-docker.pkg.dev/nelab-402301/alan-test/nginx:3.0
           ports:
             - containerPort: 80
