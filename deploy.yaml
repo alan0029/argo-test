@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-deployment
+  annotations:
+    argocd-image-updater.argoproj.io/image-list: nginx=asia-east1-docker.pkg.dev/nelab-402301/alan-test/nginx:*
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nginx
+  template:
+    metadata:
+      labels:
+        app: nginx
+    spec:
+      containers:
+        - name: nginx
+          image: asia-east1-docker.pkg.dev/nelab-402301/alan-test/nginx:2.0
+          ports:
+            - containerPort: 80
